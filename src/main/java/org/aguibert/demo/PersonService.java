@@ -47,13 +47,6 @@ public class PersonService {
 
     private final Map<Long, Person> personRepo = new HashMap<>();
 
-    //@PostConstruct
-    public void initPeople() {
-        System.out.println("Seeding database with sample data");
-        createPerson("Sample Person A", 25);
-        createPerson("Sample Person B", 26);
-    }
-
     @GET
     public Collection<Person> getAllPeople() {
         return personRepo.values();
