@@ -75,7 +75,7 @@
 
 		<dependency>
 			<groupId>com.github.microshed.microshed-testing</groupId>
-			<artifactId>microshed-testing-testcontainers</artifactId>
+			<artifactId>microshed-testing-liberty</artifactId>
 			<!-- <groupId>org.microshed</groupId> -->
 			<!-- <version>0.1-SNAPSHOT</version> -->
 			<version>v0.4-beta</version>

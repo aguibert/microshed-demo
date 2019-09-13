@@ -62,5 +62,10 @@ public class MicroShedDemoIT {
         assertTrue(allPeople.contains(expected1), "Did not find person " + expected1 + " in all people: " + allPeople);
         assertTrue(allPeople.contains(expected2), "Did not find person " + expected2 + " in all people: " + allPeople);
     }
+    
+    @Test
+    public void testHello() {
+        assertEquals("Hello world!", personSvc.sayHello());
+    }
 
 }

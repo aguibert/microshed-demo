@@ -51,6 +51,12 @@ public class PersonService {
     public Collection<Person> getAllPeople() {
         return personRepo.values();
     }
+    
+    @GET
+    @Path("/hello")
+    public String sayHello() {
+        return "Hello world!";
+    }
 
     @GET
     @Path("/{personId}")
