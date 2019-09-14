@@ -6,6 +6,21 @@
         <feature>beanValidation-2.0</feature>
         <feature>cdi-2.0</feature>
         <feature>mpHealth-2.0</feature>
+        <feature>jdbc-4.2</feature>
     </featureManager>
+    
+    <dataSource id="DefaultDataSource">
+        <jdbcDriver libraryRef="postgresLib"/>
+        <connectionManager agedTimeout="5s" reapTime="5s" />
+        <properties serverName="${PG_HOST}" 
+                    portNumber="${PG_PORT}"  
+                    user="${PG_USER}" 
+                    password="${PG_PASS}" 
+                    databaseName="${PG_DBNAME}"/>
+    </dataSource>
+    
+    <library id="postgresLib">
+        <file name="${server.config.dir}/resources/postgresql.jar"/>
+    </library>
 
 </server>
