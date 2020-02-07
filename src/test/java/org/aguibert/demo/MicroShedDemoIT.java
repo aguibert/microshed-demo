@@ -23,11 +23,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collection;
 
-import javax.inject.Inject;
-
 import org.junit.jupiter.api.Test;
+import org.microshed.testing.jaxrs.RESTClient;
 import org.microshed.testing.jupiter.MicroShedTest;
-import org.microshed.testing.testcontainers.MicroProfileApplication;
+import org.microshed.testing.testcontainers.ApplicationContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 
@@ -44,17 +43,16 @@ public class MicroShedDemoIT {
         .withInitScript("init.sql");
     
     @Container
-    public static MicroProfileApplication app = new MicroProfileApplication()
+    public static ApplicationContainer app = new ApplicationContainer()
                     .withAppContextRoot("/myservice")
+                    .withReadinessPath("/health/ready")
                     .withEnv("PG_HOST", "postgres")
                     .withEnv("PG_PORT", "" + PostgreSQLContainer.POSTGRESQL_PORT)
                     .withEnv("PG_USER", db.getUsername())
                     .withEnv("PG_PASS", db.getPassword())
                     .withEnv("PG_DBNAME", db.getDatabaseName());
     
-    
-    
-    @Inject
+    @RESTClient
     public static PersonService personSvc;
     
     @Test
