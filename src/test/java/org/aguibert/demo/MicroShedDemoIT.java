@@ -47,7 +47,7 @@ public class MicroShedDemoIT {
                     .withAppContextRoot("/myservice")
                     .withReadinessPath("/health/ready")
                     .withEnv("PG_HOST", "postgres")
-                    .withEnv("PG_PORT", "" + PostgreSQLContainer.POSTGRESQL_PORT)
+                    .withEnv("PG_PORT", "5432")
                     .withEnv("PG_USER", db.getUsername())
                     .withEnv("PG_PASS", db.getPassword())
                     .withEnv("PG_DBNAME", db.getDatabaseName());
